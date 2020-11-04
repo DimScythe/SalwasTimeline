@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { GlobalStyle, Title, AudioContainer } from "./styles";
+import { ThemeProvider } from "styled-components";
+import EventList from "./components/EventList";
+
+const theme = {
+  mainColor: "DarkSlateBlue",
+  backgroundColor: "#FAEBD7",
+  blue: "#191970",
+  dark: "DarkSlateBlue",
+  itemBorder: "#191970",
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Title>Welcome To My World</Title>
+
+      <AudioContainer>
+        <audio
+          src="../Rewrite The Stars - The Greatest ShowmanEASY PIANO TUTORIAL + SHEET MUSIC by Betacustic.mp3"
+          controls
+        ></audio>
+      </AudioContainer>
+
+      <EventList />
+    </ThemeProvider>
   );
 }
 
